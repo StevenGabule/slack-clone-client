@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Container, Form, Header, Input} from "semantic-ui-react";
+import {Button, Container, Form, Header, Input, Message} from "semantic-ui-react";
 import {Mutation} from 'react-apollo';
 import {USER_REGISTER} from "../queries";
 
@@ -20,13 +20,16 @@ const style = {
 
 const INITIAL_VALUE = {
     username: '',
+    usernameError: '',
     email: '',
+    emailError: '',
     password: '',
+    passwordError: '',
 };
 
 class Register extends Component {
     state = {
-        ...INITIAL_VALUE
+        ...INITIAL_VALUE,
     };
 
     handleChange = e => {
@@ -34,51 +37,89 @@ class Register extends Component {
         this.setState({[name]: value});
     };
 
-    handleSubmit = (event, register) => {
+    handleSubmit = async (event, register) => {
         event.preventDefault();
-        register().then(({data}) => {
-            // this.clearState();
-            console.log(data);
-        })
+        this.setState({
+            usernameError: '',
+            emailError: '',
+            passwordError: '',
+        });
+        await register().then(({data}) => {
+            const {ok, errors} = data.register;
+            if (ok) {
+                this.props.history.push('/');
+            } else {
+                const err = {};
+                errors.forEach(({path, message}) => {
+                    err[`${path}Error`] = message;
+                });
+                this.setState(err);
+            }
+        });
+    };
+
+    validateForm = () => {
+        const {username, email, password} = this.state;
+        return !username || !email || !password;
     };
 
     clearState = () => {
-        this.setState(...INITIAL_VALUE);
+        this.setState({...INITIAL_VALUE});
     };
 
     render() {
-        const {email, username, password} = this.state;
+        const {email, emailError, username, usernameError, password, passwordError} = this.state;
+        const errorList = [];
+        if (usernameError) {
+            errorList.push(usernameError);
+        }
+
+        if (emailError) {
+            errorList.push(emailError);
+        }
+
+        if (passwordError) {
+            errorList.push(passwordError);
+        }
         return (
-            <Mutation mutation={USER_REGISTER} variables={{username, email, password }}>
-                {(register, {data}) => {
+            <Mutation mutation={USER_REGISTER} variables={{username, email, password}}>
+                {(register, {data, loading}) => {
                     return (
                         <Container text>
                             <Header as={'h2'} style={style.h3}>Register</Header>
                             <Form onSubmit={event => this.handleSubmit(event, register)}>
                                 <Form.Field>
-                                    <Input name={'username'}
-                                           value={username}
-                                           fluid
-                                           placeholder={'Enter username'}
-                                           onChange={this.handleChange}/>
+                                    <Form.Input error={!!usernameError} name={'username'}
+                                                value={username}
+                                                fluid
+                                                placeholder={'Enter username'}
+                                                onChange={this.handleChange}/>
                                 </Form.Field>
                                 <Form.Field>
-                                    <Input name={'email'}
-                                           type={'email'}
-                                           value={email}
-                                           fluid
-                                           placeholder={'Enter email'}
-                                           onChange={this.handleChange}/>
+                                    <Form.Input error={!!emailError} name={'email'}
+                                                type={'email'}
+
+                                                fluid
+                                                placeholder={'Enter email'}
+                                                onChange={this.handleChange}/>
                                 </Form.Field>
                                 <Form.Field>
-                                    <Input name={'password'}
-                                           type={'password'}
-                                           value={password} fluid
-                                           placeholder={'Enter password'}
-                                           onChange={this.handleChange}/>
+                                    <Form.Input error={!!passwordError} name={'password'}
+                                                type={'password'}
+
+                                                value={password} fluid
+                                                placeholder={'Enter password'}
+                                                onChange={this.handleChange}/>
                                 </Form.Field>
-                                <Button primary type='submit'>Submit</Button>
+                                <Button color={'teal'} disabled={loading || this.validateForm()}
+                                        type='submit'>Submit</Button>
                             </Form>
+                            {(usernameError || emailError || passwordError) ? (
+                                <Message
+                                    error
+                                    header={'There was some errors with your submission'}
+                                    list={errorList}/>
+                            ) : null}
                         </Container>
                     )
                 }}

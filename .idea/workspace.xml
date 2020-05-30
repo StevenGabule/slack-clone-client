@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9991a991-058b-454a-9952-05fa4d2a1bf9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/queries/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/queries/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/CreateTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/CreateTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +88,7 @@
       <workItem from="1590750432335" duration="13863000" />
       <workItem from="1590768404735" duration="2838000" />
       <workItem from="1590779638060" duration="13239000" />
-      <workItem from="1590839024751" duration="2758000" />
+      <workItem from="1590839024751" duration="9745000" />
     </task>
     <servers />
   </component>

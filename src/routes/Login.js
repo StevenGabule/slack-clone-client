@@ -1,10 +1,11 @@
 import {observer} from "mobx-react";
 import React, {Component} from "react";
-import {extendObservable} from "mobx";
+import {extendObservable, get} from "mobx";
 import {Mutation} from "react-apollo";
 import {Button, Container, Form, Header, Message} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import {USER_LOGIN} from "../queries";
+import {withRouter} from 'react-router-dom'
 
 class Login extends Component {
     constructor(props) {
@@ -16,6 +17,13 @@ class Login extends Component {
         });
     }
 
+    componentDidMount() {
+        const {getCurrentUser} = this.props.session;
+        if (getCurrentUser !== null) {
+            this.props.history.push('/');
+        }
+    }
+
     handleChange = e => {
       const {name, value} = e.target;
       this[name] = value;
@@ -23,12 +31,13 @@ class Login extends Component {
 
     handleSubmit = (event, login) => {
         event.preventDefault();
-        login().then(({data}) => {
+        login().then(async ({data}) => {
            console.log(data);
            const {ok, token, refreshToken, errors} = data.login;
            if (ok) {
                localStorage.setItem('token', token);
                localStorage.setItem('refreshToken', refreshToken);
+               await this.props.refetch();
                this.props.history.push('/');
            } else {
                const err = {};
@@ -88,4 +97,4 @@ class Login extends Component {
     }
 }
 
-export default observer(Login);
+export default withRouter(observer(Login));

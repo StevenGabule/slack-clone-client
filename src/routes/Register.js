@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Container, Form, Header, Input, Message} from "semantic-ui-react";
 import {Mutation} from 'react-apollo';
 import {USER_REGISTER} from "../queries";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 
 const style = {
     h1: {
@@ -32,6 +32,13 @@ class Register extends Component {
     state = {
         ...INITIAL_VALUE,
     };
+
+    componentDidMount() {
+        const {getCurrentUser} = this.props.session;
+        if (getCurrentUser !== null) {
+            this.props.history.push('/');
+        }
+    }
 
     handleChange = e => {
         const {name, value} = e.target;
@@ -130,4 +137,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);

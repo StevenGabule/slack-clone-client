@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import ApolloClient from 'apollo-boost';
-import Routes from './routes'
+import withSession from './auth/WithSession';
+import Root from './routes'
 import {ApolloProvider} from '@apollo/react-hooks';
 import 'semantic-ui-css/semantic.css';
 
@@ -16,7 +17,7 @@ const client = new ApolloClient({
         operation.setContext({
             headers: {
                 'token': token,
-                'x-refresh-token': refreshToken
+                'refresh-token': refreshToken
             }
         })
     },
@@ -27,10 +28,11 @@ const client = new ApolloClient({
     }
 });
 
+const RootWithSession = withSession(Root);
 
 const App = (
     <ApolloProvider client={client}>
-        <Routes/>
+        <RootWithSession/>
     </ApolloProvider>
 );
 

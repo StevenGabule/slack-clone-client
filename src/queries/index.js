@@ -46,3 +46,14 @@ export const NEW_TEAM = gql`
         }
     }
 `;
+
+/* USER QUERIES */
+export const GET_CURRENT_USER = gql`
+    query {
+        getCurrentUser {
+            id
+            email
+            username
+        }
+    }
+`;

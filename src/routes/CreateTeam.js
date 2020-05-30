@@ -4,6 +4,7 @@ import {extendObservable} from "mobx";
 import {Mutation} from "react-apollo";
 import {Button, Container, Form, Header, Message} from "semantic-ui-react";
 import {NEW_TEAM} from "../queries";
+import withAuth from "../auth/withAuth";
 
 class CreateTeam extends Component {
     constructor(props) {
@@ -12,6 +13,11 @@ class CreateTeam extends Component {
             name: 'New Team Name',
             userErrors: {},
         });
+    }
+
+    componentDidMount() {
+        const getCurrentUser = this.props;
+        console.log(getCurrentUser);
     }
 
     handleChange = e => {
@@ -38,6 +44,7 @@ class CreateTeam extends Component {
 
     render() {
         const {name, userErrors: {nameError}} = this;
+        const {session} = this.props;
         const errorList = [];
 
         if (nameError) {
@@ -47,6 +54,9 @@ class CreateTeam extends Component {
         return (
             <Container text>
                 <Header as={'h2'} style={{marginTop: '5%'}}>Create Team </Header>
+                <pre>
+                    {session.getCurrentUser.username}
+                </pre>
                 <Mutation mutation={NEW_TEAM} variables={{name}}>
                     {(createTeam, {data, loading, error}) => {
                         return (
@@ -77,4 +87,4 @@ class CreateTeam extends Component {
     }
 }
 
-export default observer(CreateTeam);
+export default withAuth(session => session && session.getCurrentUser)(observer(CreateTeam));

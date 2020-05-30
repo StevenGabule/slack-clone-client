@@ -20,3 +20,29 @@ export const USER_REGISTER = gql`
         }
     }
 `;
+
+export const USER_LOGIN = gql`
+    mutation ($email: String!, $password: String!){
+        login(email: $email, password: $password) {
+            ok
+            token
+            refreshToken
+            errors {
+                path
+                message
+            }
+        }
+    }
+`;
+
+export const NEW_TEAM = gql`
+    mutation($name: String!) {
+        createTeam(name: $name) {
+            ok
+            errors {
+                path
+                message
+            }
+        }
+    }
+`;

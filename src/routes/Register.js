@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, Container, Form, Header, Input, Message} from "semantic-ui-react";
 import {Mutation} from 'react-apollo';
 import {USER_REGISTER} from "../queries";
+import {Link} from "react-router-dom";
 
 const style = {
     h1: {
@@ -113,8 +114,9 @@ class Register extends Component {
                                 </Form.Field>
                                 <Button color={'teal'} disabled={loading || this.validateForm()}
                                         type='submit'>Submit</Button>
+                                    <Link to={'/login'}>Login Here!</Link>
                             </Form>
-                            {(usernameError || emailError || passwordError) ? (
+                            {errorList.length > 0 ? (
                                 <Message
                                     error
                                     header={'There was some errors with your submission'}

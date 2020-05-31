@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Container, Form, Header, Input, Message} from "semantic-ui-react";
+import {Button, Container, Form, Header, Message} from "semantic-ui-react";
 import {Mutation} from 'react-apollo';
 import {USER_REGISTER} from "../queries";
 import {Link, withRouter} from "react-router-dom";

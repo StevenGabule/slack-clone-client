@@ -1,6 +1,6 @@
 import {observer} from "mobx-react";
 import React, {Component} from "react";
-import {extendObservable, get} from "mobx";
+import {extendObservable} from "mobx";
 import {Mutation} from "react-apollo";
 import {Button, Container, Form, Header, Message} from "semantic-ui-react";
 import {Link} from "react-router-dom";

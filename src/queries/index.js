@@ -47,6 +47,21 @@ export const NEW_TEAM = gql`
     }
 `;
 
+export const USER_TEAMS = gql`
+    query {
+        allTeams {
+            id
+            name
+            channels {
+                id
+                name
+                public
+                teamId
+            }
+        }
+    }
+`;
+
 /* USER QUERIES */
 export const GET_CURRENT_USER = gql`
     query {

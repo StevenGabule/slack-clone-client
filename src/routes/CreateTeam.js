@@ -5,6 +5,7 @@ import {Mutation} from "react-apollo";
 import {Button, Container, Form, Header, Message} from "semantic-ui-react";
 import {NEW_TEAM} from "../queries";
 import withAuth from "../auth/withAuth";
+import {withRouter} from "react-router-dom";
 
 class CreateTeam extends Component {
     constructor(props) {
@@ -87,4 +88,4 @@ class CreateTeam extends Component {
     }
 }
 
-export default withAuth(session => session && session.getCurrentUser)(observer(CreateTeam));
+export default withRouter(withAuth(session => session && session.getCurrentUser)(observer(CreateTeam)));

@@ -5,11 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/John_paul.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/John_paul.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/WithSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/WithSession.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/withAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/withAuth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/queries/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/queries/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/CreateTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/CreateTeam.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/ViewTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/ViewTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +54,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="MTCustomThemeConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -108,7 +109,9 @@
       <workItem from="1590750432335" duration="13863000" />
       <workItem from="1590768404735" duration="2838000" />
       <workItem from="1590779638060" duration="13239000" />
-      <workItem from="1590839024751" duration="32783000" />
+      <workItem from="1590839024751" duration="34034000" />
+      <workItem from="1591202996247" duration="2350000" />
+      <workItem from="1591538493655" duration="15701000" />
     </task>
     <servers />
   </component>

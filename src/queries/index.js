@@ -47,6 +47,19 @@ export const NEW_TEAM = gql`
     }
 `;
 
+export const NEW_CHANNEL = gql`
+    mutation($teamId: Int!, $name: String!) {
+        createChannel(teamId: $teamId, name: $name) {
+            ok
+            channel {
+                id
+                name
+                teamId
+            }
+        }
+    }
+`;
+
 export const USER_TEAMS = gql`
     query {
         allTeams {
